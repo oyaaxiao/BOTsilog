@@ -8,7 +8,7 @@ module.exports = {
   author: 'coffee',
   async execute(senderId, args, pageAccessToken) {
     const prompt = args.join(' ');
-    if (!prompt) return sendMessage(senderId, { text: "Usage: gemini <your message>" }, pageAccessToken);
+    if (!prompt) return sendMessage(senderId, { text: "Usage: /gemini [your message]" }, pageAccessToken);
 
     try {
       const { data } = await axios.get(`https://joshweb.click/gemini?prompt=${encodeURIComponent(prompt)}`);
