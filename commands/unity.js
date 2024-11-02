@@ -10,7 +10,7 @@ module.exports = {
   async execute(senderId, args, pageAccessToken) {
 
     const prompt = args.join(' ');
-    if (!prompt) return sendMessage(senderId, { text: "Usage: unity <question>" }, pageAccessToken);
+    if (!prompt) return sendMessage(senderId, { text: "Usage: /unity [question]" }, pageAccessToken);
 
     try {
        const { data } = await axios.get(`https://api.kenliejugarap.com/unity/?question=${encodeURIComponent(prompt)}`);
