@@ -4,9 +4,9 @@ const { sendMessage } = require('../handles/sendMessage');
 const domains = ["rteet.com", "1secmail.com", "1secmail.org", "1secmail.net", "wwjmp.com", "esiix.com", "xojxe.com", "yoggm.com"];
 
 module.exports = {
-  name: 'tempmail',
+  name: '/tempmail',
   description: 'Generate temporary email and check inbox',
-  usage: '-tempmail gen OR -tempmail inbox <email>',
+  usage: '/tempmail gen OR /tempmail inbox [email]',
   author: 'coffee',
 
   async execute(senderId, args, pageAccessToken) {
