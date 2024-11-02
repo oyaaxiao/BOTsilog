@@ -9,7 +9,7 @@ module.exports = {
 
   async execute(senderId, args, pageAccessToken) {
     const prompt = args.join(' ');
-    if (!prompt) return sendMessage(senderId, { text: "Usage: ai <question>" }, pageAccessToken);
+    if (!prompt) return sendMessage(senderId, { text: "Usage: ai [your question]" }, pageAccessToken);
 
     try {
       const { data: { response } } = await axios.get(`https://hiroshi-api.onrender.com/ai/cohere?ask=${encodeURIComponent(prompt)}`);
