@@ -3,10 +3,10 @@ const path = require('path');
 const { sendMessage } = require('../handles/sendMessage');
 
 module.exports = {
-  name: 'help',
+  name: '/help',
   description: 'Show available commands',
-  usage: 'help\nhelp [command name]',
-  author: 'System',
+  usage: '/help [command name]',
+  author: 'Robert Aaron',
   execute(senderId, args, pageAccessToken) {
     const commandsDir = path.join(__dirname, '../commands');
     const commandFiles = fs.readdirSync(commandsDir).filter(file => file.endsWith('.js'));
@@ -22,9 +22,10 @@ module.exports = {
         const command = require(path.join(commandsDir, commandFile));
         const commandDetails = `
 ━━━━━━━━━━━━━━
-𝙲𝚘𝚖𝚖𝚊𝚗𝚍 𝙽𝚊𝚖𝚎: ${command.name}
-𝙳𝚎𝚜𝚌𝚛𝚒𝚋𝚝𝚒𝚘𝚗: ${command.description}
-𝚄𝚜𝚊𝚐𝚎: ${command.usage}
+𝗖𝗼𝗺𝗺𝗮𝗻𝗱 𝗡𝗮𝗺𝗲:\n${command.name}\n
+𝗗𝗶𝘀𝗰𝗿𝗶𝗽𝘁𝗶𝗼𝗻:\n${command.description}\n
+𝗔𝘂𝘁𝗵𝗼𝗿:\n${command.author}\n
+𝗨𝘀𝗮𝗴𝗲:\n${command.usage}
 ━━━━━━━━━━━━━━`;
         
         sendMessage(senderId, { text: commandDetails }, pageAccessToken);
@@ -34,20 +35,38 @@ module.exports = {
       return;
     }
 
-    const commands = commandFiles.map(file => {
-      const command = require(path.join(commandsDir, file));
-      return `│ - ${command.name}`;
-    });
-
     const helpMessage = `
 ━━━━━━━━━━━━━━
-𝙰𝚟𝚊𝚒𝚕𝚊𝚋𝚕𝚎 𝙲𝚘𝚖𝚖𝚊𝚗𝚍𝚜:
-╭─╼━━━━━━━━╾─╮
-${commands.join('\n')}
-╰─━━━━━━━━━╾─╯
-Chat -help [name] 
+𝙰𝚟𝚊𝚒𝚕𝚊𝚋𝚕𝚎 𝙲𝚘𝚖𝚖𝚊𝚗𝚍𝚜:\n
+╭─╼◆ 𝗔𝗜 𝗖𝗛𝗔𝗧𝗕𝗢𝗧𝗦
+│◇ai
+│◇gemini
+│◇gpt4
+│◇llma
+│◇unity
+╰─━━━━━━━━━╾─╯\n
+╭─╼◆ 𝗘𝗡𝗧𝗘𝗥𝗧𝗔𝗜𝗡𝗠𝗘𝗡𝗧
+│◇eabab
+│◇shoti
+│◇riddle
+╰─━━━━━━━━━╾─╯\n
+╭─╼◆ 𝗜𝗠𝗔𝗚𝗘
+│◇draw
+│◇gimage
+│◇pinterest
+╰─━━━━━━━━━╾─╯\n
+╭─╼◆ 𝗠𝗨𝗦𝗜𝗖
+│◇lyrics
+│◇spotify
+╰─━━━━━━━━━╾─╯\n
+╭─╼◆ 𝗨𝗧𝗜𝗟𝗜𝗧𝗬
+│◇tempmail
+│◇wiki
+╰─━━━━━━━━━╾─╯\n
+Type "/help [command name]"
 to see command details.
-━━━━━━━━━━━━━━`;
+━━━━━━━━━━━━━━
+Made By: Robert Aaron Mantac`;
 
     sendMessage(senderId, { text: helpMessage }, pageAccessToken);
   }
