@@ -40,6 +40,12 @@ app.post('/webhook', (req, res) => {
         } else if (event.postback) {
           handlePostback(event, PAGE_ACCESS_TOKEN);
         }
+
+        // New: Detect if the user clicked the "Message" button
+        if (event.message && !event.message.text) {
+          const senderId = event.sender.id;
+          sendMessage(senderId, { text: "𝙎𝙤𝙡𝙖𝙩𝙇𝙪𝙣𝙖 - 𝘽𝙊𝙏\n\nTo use the bot,\ntype /help for commands.\n\n𝗣𝗼𝘄𝗲𝗿𝗲𝗱 𝗯𝘆: Robert Aaron Mantac" }, PAGE_ACCESS_TOKEN);
+        }
       });
     });
 
@@ -64,7 +70,8 @@ const sendMessengerProfileRequest = async (method, url, data = null) => {
     throw error;
   }
 };
-//autopost
+
+// Auto post function (unchanged)
 async function post() {
   console.log("Auto 1 Hour Post Enabled");
   const autoPost = cron.schedule(`0 */1 * * *`, async () => {
@@ -83,6 +90,7 @@ ${content}
   });
   autoPost.start();
 }
+
 // Load all command files from the "commands" directory
 const loadCommands = () => {
   return fs.readdirSync(COMMANDS_PATH)
