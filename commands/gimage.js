@@ -16,7 +16,7 @@ const badWords = new Set(
 module.exports = {
   name: '/gimage',
   description: 'Search Google Images.',
-  usage: '/gimage <search_query>',
+  usage: '/gimage [prompt]',
   author: 'coffee',
 
   async execute(senderId, args) {
