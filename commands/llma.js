@@ -9,7 +9,7 @@ module.exports = {
 
   async execute(senderId, args, pageAccessToken) {
     const prompt = args.join(' ');
-    if (!prompt) return sendMessage(senderId, { text: "Usage: llma <question>" }, pageAccessToken);
+    if (!prompt) return sendMessage(senderId, { text: "Usage: /llma [question]" }, pageAccessToken);
 
     try {
       const { data: { result } } = await axios.get(`https://joshweb.click/api/llama-3-70b?q=${encodeURIComponent(prompt)}`);
