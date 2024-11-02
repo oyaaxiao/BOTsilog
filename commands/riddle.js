@@ -2,9 +2,9 @@ const axios = require('axios');
 const { sendMessage } = require('../handles/sendMessage');
 
 module.exports = {
-  name: 'riddle',
+  name: '/riddle',
   description: 'Get a logic and answer',
-  usage: 'riddle',
+  usage: '/riddle',
   author: 'coffee',
 
   async execute(senderId, args, pageAccessToken) {
