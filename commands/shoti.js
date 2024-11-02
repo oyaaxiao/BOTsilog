@@ -2,8 +2,8 @@ const axios = require('axios');
 const { sendMessage } = require('../handles/sendMessage');
 
 module.exports = {
-name: 'shoti',
-usage: 'shoti',
+name: '/shoti',
+usage: '/shoti',
 description: 'Generate a random TikTok video.',
 author: 'Jerome',
 async execute(senderId, args, pageAccessToken, sendMessage) {
