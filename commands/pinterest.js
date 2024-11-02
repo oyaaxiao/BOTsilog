@@ -6,9 +6,9 @@ const tokenPath = './token.txt';
 const pageAccessToken = fs.readFileSync(tokenPath, 'utf8').trim();
 
 module.exports = {
-  name: 'pinterest',
+  name: '/pinterest',
   description: 'Search Pinterest for images.',
-  usage: '-pinterest prompt -number',
+  usage: '/pinterest [prompt] [number]',
   author: 'coffee',
 
   async execute(senderId, args) {
