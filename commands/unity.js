@@ -2,9 +2,9 @@ const axios = require('axios');
 const { sendMessage } = require('../handles/sendMessage');
 
 module.exports = {
-  name: 'unity',
+  name: '/unity',
   description: 'Get answer from unity ai',
-  usage: 'unity [question]',
+  usage: '/unity [question]',
   author: 'coffee',
 
   async execute(senderId, args, pageAccessToken) {
