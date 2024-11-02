@@ -30,6 +30,6 @@ module.exports = {
       }
     }
 
-    sendMessage(senderId, { text: 'Invalid usage. Use -tempmail gen or -tempmail inbox <email>' }, pageAccessToken);
+    sendMessage(senderId, { text: 'Invalid usage. Use /tempmail gen or /tempmail inbox [email]' }, pageAccessToken);
   },
 };
