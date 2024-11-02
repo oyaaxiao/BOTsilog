@@ -12,17 +12,11 @@ module.exports = {
     const commandFiles = fs.readdirSync(commandsDir).filter(file => file.endsWith('.js'));
 
     if (args.length > 0) {
-      const commandName = args[0];
-
-      // Check if the command name starts with a slash
-      if (commandName.startsWith('/')) {
-        sendMessage(senderId, { text: 'Command "${commandName}" not found.' }, pageAccessToken);
-        return;
-      }
-
+      // Remove leading slashes and convert to lowercase
+      const commandName = args[0].replace(/^\/+/, '').toLowerCase();
       const commandFile = commandFiles.find(file => {
         const command = require(path.join(commandsDir, file));
-        return command.name.toLowerCase() === commandName.toLowerCase();
+        return command.name.replace(/^\/+/, '').toLowerCase() === commandName;
       });
 
       if (commandFile) {
