@@ -2,9 +2,9 @@ const axios = require('axios');
 const { sendMessage } = require('../handles/sendMessage');
 
 module.exports = {
-  name: 'llma',
+  name: '/llma',
   description: 'Interact with LLMA META AI',
-  usage: 'llma [your Question or Message]',
+  usage: '/llma [your question]',
   author: 'coffee',
 
   async execute(senderId, args, pageAccessToken) {
