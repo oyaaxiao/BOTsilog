@@ -10,7 +10,7 @@ module.exports = {
   async execute(senderId, args, pageAccessToken) {
 
     const prompt = args.join(' ');
-    if (!prompt) return sendMessage(senderId, { text: "Usage: wiki <question or text>" }, pageAccessToken);
+    if (!prompt) return sendMessage(senderId, { text: "Usage: /wiki [prompt]" }, pageAccessToken);
 
     try {
        const { data } = await axios.get(`https://ccproject10-df3227f754.onlitegix.com/api/wiki?q=${encodeURIComponent(prompt)}`);
