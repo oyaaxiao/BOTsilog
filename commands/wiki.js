@@ -2,9 +2,9 @@ const axios = require('axios');
 const { sendMessage } = require('../handles/sendMessage');
 
 module.exports = {
-  name: 'wiki',
+  name: '/wiki',
   description: 'Get answer from wikipedia',
-  usage: 'wiki [text or question]',
+  usage: '/wiki [prompt]',
   author: 'coffee',
 
   async execute(senderId, args, pageAccessToken) {
