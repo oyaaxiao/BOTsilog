@@ -22,7 +22,7 @@ module.exports = {
   async execute(senderId, args) {
     const searchQuery = args.join(' ').trim();
     if (!searchQuery) {
-      return sendMessage(senderId, { text: '📷 | Format: -gmage <search_query>' }, pageAccessToken);
+      return sendMessage(senderId, { text: '📷 | Format: /gimage [prompt]' }, pageAccessToken);
     }
     if (containsBadWords(searchQuery)) {
       return sendMessage(senderId, { text: '❎ | NSFW Prompt Detected' }, pageAccessToken);
