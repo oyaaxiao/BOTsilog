@@ -10,7 +10,7 @@ const SEARCH_ENGINE_ID = 'e01c6428089ea4702';
 const MAX_IMAGES = 9;
 
 const badWords = new Set(
-[ "gay", "porn", "hentai", "Add more" ]
+[ "gay", "porn", "hentai", "bold", "tits", "boobs", "yuri", "dick", "tite" , "putay", "vagina", "nigga", "kantutan", "oppai", "boombayah", "gago", "puta", "pota", "tangina", "kupal", "privateparts", "buto", "bilat", "kipay", "pekpek", "pitoy", "jabol", "lulu" ]
 );
 
 module.exports = {
@@ -25,7 +25,7 @@ module.exports = {
       return sendMessage(senderId, { text: '📷 | Format: /gimage [prompt]' }, pageAccessToken);
     }
     if (containsBadWords(searchQuery)) {
-      return sendMessage(senderId, { text: '❎ | NSFW Prompt Detected' }, pageAccessToken);
+      return sendMessage(senderId, { text: '❎ | Badwords Prompt Detected' }, pageAccessToken);
     }
 
     try {
