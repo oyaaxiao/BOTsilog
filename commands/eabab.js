@@ -9,7 +9,7 @@ description: 'Generate a random girl video.',
 author: 'Jerome',
 async execute(senderId, args, pageAccessToken, sendMessage) {
 try {
-const apiUrl = 'https://hiroshi-api.onrender.com/video/eabab';
+const apiUrl = 'https://shoti-api.libyzxy0.repl.co/api/get-shoti?apikey=shoti-1h7ccntg3mgjvqi8hso';
 const response = await axios.get(apiUrl);
 const videoUrl = response.data.link;
 const title = response.data.title;
